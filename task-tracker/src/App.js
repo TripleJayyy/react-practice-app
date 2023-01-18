@@ -1,14 +1,35 @@
-import logo from "./logo.svg";
-import "./App.css";
 import Header from "./components/Header";
-import React from "react";
+import Tasks from "./components/Tasks";
+import { useState } from "react";
 
-function App() {
+const App = () => {
+  const [tasks, setTasks] = useState(
+    [{
+        id: 1,
+        text: "Doctor",
+        day: "Feb 5",
+        reminder: true,
+      },
+      {
+        id: 2,
+        text: "School",
+        day: "Feb 6",
+        reminder: true,
+      },
+      {
+        id: 3,
+        text: "Food",
+        day: "Feb 7",
+        reminder: false,
+      },
+    ])
+
   return (
     <div className="container">
-      <Header title="Task Tracker"/>
+      <Header />
+      <Tasks tasks={tasks}/>
     </div>
   );
-}
+};
 
 export default App;
